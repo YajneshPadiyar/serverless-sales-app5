@@ -10,6 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var createCustomer = require('./ManageCustomer/addCustomer/addCustomer');
 var getCustomers = require('./ManageCustomer/getCustomers/getCustomers');
+var updateCustomer = require('./ManageCustomer/updateCustomer/updateCustomer');
 var createZone = require('./ManageZones/createZone/createZone');
 var getZones = require('./ManageZones/getZones/getZones');
 
@@ -33,6 +34,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/addCustomer', createCustomer);
 app.use('/getCustomers', getCustomers);
+app.use('/updateCustomer', updateCustomer);
 app.use('/createZone', createZone);
 app.use('/getZones', getZones);
 
