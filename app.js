@@ -11,6 +11,8 @@ var users = require('./routes/users');
 var createCustomer = require('./ManageCustomer/addCustomer/addCustomer');
 var getCustomers = require('./ManageCustomer/getCustomers/getCustomers');
 var updateCustomer = require('./ManageCustomer/updateCustomer/updateCustomer');
+var deleteCustomer = require('./ManageCustomer/deleteCustomer/deleteCustomer');
+
 var createZone = require('./ManageZones/createZone/createZone');
 var getZones = require('./ManageZones/getZones/getZones');
 
@@ -32,9 +34,12 @@ app.use(cors());
 
 app.use('/', index);
 app.use('/users', users);
+
 app.use('/addCustomer', createCustomer);
 app.use('/getCustomers', getCustomers);
 app.use('/updateCustomer', updateCustomer);
+app.use('/deleteCustomer', deleteCustomer);
+
 app.use('/createZone', createZone);
 app.use('/getZones', getZones);
 

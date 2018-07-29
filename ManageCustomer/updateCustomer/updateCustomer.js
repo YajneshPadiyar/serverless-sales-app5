@@ -15,19 +15,36 @@ var response = {};
 //console.log(req.body);
 
 var reqData = req.body.data;
-var initial = "set ";
-var updateExpress = initial;
+var setInitial = "set ";
+var removeInitial = "remove ";
+var setUpdateExpress = setInitial;
+var removeUpdateExpress = removeInitial;
 var expressAttribValues = {};
+var updateExpress = "";
 for(data in reqData){
-  if(updateExpress == initial) {
-    updateExpress += data+"=:"+data;
+  if(reqData[data] != ""){
+    if(setUpdateExpress == setInitial) {
+      setUpdateExpress += data+"=:"+data;
+    }else{
+      setUpdateExpress += ", "+data+"=:"+data;
+    }
+    expressAttribValues[":"+data] = reqData[data];
   }else{
-    updateExpress += ", "+data+"=:"+data;
+    if(removeUpdateExpress == removeInitial) {
+      removeUpdateExpress += data;
+    }else{
+      removeUpdateExpress += ", "+data;
+    }
   }
-  expressAttribValues[":"+data] = reqData[data];
 }
-console.log(updateExpress);
-console.log(expressAttribValues);
+
+if(removeUpdateExpress == removeInitial ){
+  updateExpress = setUpdateExpress;
+}else{
+  updateExpress = setUpdateExpress+" "+ removeUpdateExpress;
+}
+//console.log(updateExpress);
+//console.log(expressAttribValues);
 var internalRequest = {
   TableName: Config.CUSTOMER_TABLE,
   Key: {
