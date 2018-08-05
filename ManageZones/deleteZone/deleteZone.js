@@ -6,7 +6,7 @@ var Config = require('../../config/config');
 //console.log(DynamoDB);
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('Delete Customer V1.0');
+  res.send('Delete Zone V1.0');
 });
 
 router.post('/', function(req, res, next) {
@@ -19,12 +19,13 @@ var expressAttribValues = {
   ":val": reqData
 };
 var conditionExpress = "REF_ID = :val";
-//console.log(updateExpress);
+//console.log(conditionExpress);
 //console.log(expressAttribValues);
 var internalRequest = {
-  TableName: Config.CUSTOMER_TABLE,
+  TableName: Config.ZONE_TABLE,
   Key: {
     REF_ID: req.body.REF_ID,
+    ZONE_TYPE: req.body.ZONE_TYPE
   },
   ConditionExpression: conditionExpress,
   ExpressionAttributeValues: expressAttribValues,

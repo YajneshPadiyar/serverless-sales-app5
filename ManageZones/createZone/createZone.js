@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
 
   //internalRequest.Item.ZONE_TYPE = Config.ZONE_TYPE;
   //internalRequest.Item.ZONE_ID = Config.ZONE_TYPE;
-  console.log(internalRequest);
+  //console.log(internalRequest);
   DynamoDBUtils.addItem(internalRequest, function(err,data){
     //console.log("Inside Callback");
     //console.log(err);

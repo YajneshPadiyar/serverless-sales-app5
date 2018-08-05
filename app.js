@@ -15,6 +15,9 @@ var deleteCustomer = require('./ManageCustomer/deleteCustomer/deleteCustomer');
 
 var createZone = require('./ManageZones/createZone/createZone');
 var getZones = require('./ManageZones/getZones/getZones');
+var updateZone = require('./ManageZones/updateZone/updateZone');
+var deleteZone = require('./ManageZones/deleteZone/deleteZone');
+
 
 var app = express();
 
@@ -42,6 +45,8 @@ app.use('/deleteCustomer', deleteCustomer);
 
 app.use('/createZone', createZone);
 app.use('/getZones', getZones);
+app.use('/updateZone', updateZone);
+app.use('/deleteZone', deleteZone);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
