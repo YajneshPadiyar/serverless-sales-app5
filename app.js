@@ -18,6 +18,11 @@ var getZones = require('./ManageZones/getZones/getZones');
 var updateZone = require('./ManageZones/updateZone/updateZone');
 var deleteZone = require('./ManageZones/deleteZone/deleteZone');
 
+var addProduct = require('./ManageProducts/addProduct/addProduct');
+var deleteProduct = require('./ManageProducts/deleteProduct/deleteProduct');
+var updateProduct = require('./ManageProducts/updateProduct/updateProduct');
+var getProducts = require('./ManageProducts/getProducts/getProducts');
+
 
 var app = express();
 
@@ -47,6 +52,11 @@ app.use('/createZone', createZone);
 app.use('/getZones', getZones);
 app.use('/updateZone', updateZone);
 app.use('/deleteZone', deleteZone);
+
+app.use('/addProduct', addProduct);
+app.use('/deleteProduct', deleteProduct);
+app.use('/updateProduct', updateProduct);
+app.use('/getProducts', getProducts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

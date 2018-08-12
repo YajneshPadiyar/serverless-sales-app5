@@ -27,19 +27,19 @@ function generateNewId (params, callBack){
         if(err){
           callBack(err,data);
         }else{
-          console.log("Setting the default Id");
-          console.log()
+          //console.log("Setting the default Id");
+          //console.log()
           data={
             Item:{
               Id : AWSRegion.ID_DEFAULT
             }
           };
-          console.log(data);
+          //console.log(data);
           callBack(err,data);
         }
       });
     }else{
-      console.log("Data found : "+JSON.stringify(data,null,2));
+      //console.log("Data found : "+JSON.stringify(data,null,2));
       var IdParamUpdate ={
           "TableName":AWSRegion.ID_TABLE,
           "Key":{

@@ -6,7 +6,7 @@ var Config = require('../../config/config');
 //console.log(DynamoDB);
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('Update Zone V1.0');
+  res.send('Update Product V1.0');
 });
 
 router.post('/', function(req, res, next) {
@@ -46,10 +46,9 @@ if(removeUpdateExpress == removeInitial ){
 //console.log(updateExpress);
 //console.log(expressAttribValues);
 var internalRequest = {
-  TableName: Config.ZONE_TABLE,
+  TableName: Config.PRODUCT_TABLE,
   Key: {
-    REF_ID: req.body.REF_ID,
-    ZONE_TYPE: req.body.ZONE_TYPE
+    REF_ID: req.body.REF_ID
   },
   UpdateExpression: updateExpress,
   ExpressionAttributeValues: expressAttribValues,
